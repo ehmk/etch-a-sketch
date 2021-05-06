@@ -1,14 +1,22 @@
 body {
     background-color: black;
     color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    height: 75em;
-    width: 100%;
+    margin: 5em auto;
+    height: 768px;
+    width: 1024px;
+    border-style: solid;
+    border-color: white;
+}
+
+#grid-container:hover {
+    border-color: lightcoral;
 }
 
 .grid-square {
@@ -19,3 +27,25 @@ body {
     background-color: lightblue;
 }
 
+#reset-grid-btn {
+    border-style: solid;
+    border-color: white;
+    background-color: black;
+    color: white;
+    font-size: 24px;
+}
+
+#reset-grid-btn:hover {
+    color: lightcoral;
+    border-color: lightcoral;
+}
+
+#title {
+    display: grid;
+    justify-content: center;
+}
+
+#options {
+    display: grid;
+    justify-content: center;
+}
