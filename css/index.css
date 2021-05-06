@@ -15,6 +15,7 @@ body {
     display: flex;
 }
 
-.grid-square:hover {
-    background-color: coral;
+.blue {
+    background-color: lightblue;
 }
+
