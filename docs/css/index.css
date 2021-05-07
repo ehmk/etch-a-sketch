@@ -16,15 +16,11 @@ body {
 }
 
 #grid-container:hover {
-    border-color: lightcoral;
+    border-color: lightblue;
 }
 
 .grid-square {
     display: flex;
-}
-
-.blue {
-    background-color: lightblue;
 }
 
 #reset-grid-btn {
@@ -36,8 +32,8 @@ body {
 }
 
 #reset-grid-btn:hover {
-    color: lightcoral;
-    border-color: lightcoral;
+    color: lightblue;
+    border-color: lightblue;
 }
 
 #title {

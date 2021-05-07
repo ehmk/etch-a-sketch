@@ -9,40 +9,50 @@ let resetButton = document.querySelector('#reset-grid-btn');
 resetButton.addEventListener('click', () => {
     generateNewGrid();
 });
+resetButton.classList.add(':hover');
+resetButton.style['border-color:hover'] = generateRandomRGB();
+resetButton.style['color:hover'] = generateRandomRGB();
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+function generateRandomRGB() {
+    return `rgb(${getRandomInt(255)}, ${getRandomInt(255)}, ${getRandomInt(255)})`;
+}
 
 function generateGrid() {
     for (let i = 0; i <= 256; i++) {
         let gridSquare = document.createElement('div');
         gridSquare.classList.add('grid-square');
         gridSquare.addEventListener('mouseover', () => {
-            gridSquare.classList.add('blue');
+            gridSquare.style['background-color'] = generateRandomRGB();
         });
         gridContainer.appendChild(gridSquare);
     }
 }
 
 function generateNewGrid() {
-    let height = window.prompt('Generate a new canvas. Height: ', 100);
-    let width = window.prompt('Width: ', 100);
+    let size = window.prompt('Set a new grid size', 100);
 
-    if (height > 100 || width > 100) {
+    if (size > 100) {
         alert('100 is the limit.');
     }
 
     resetGrid();
-    let area = height * width;
+    let area = size * size;
 
-    for (let i = 0; i < height; i++) {
+    for (let i = 0; i < size; i++) {
         gridContainer.style['grid-template-rows'] += " 1fr "
     }
-    for (let i = 0; i < width; i++) {
+    for (let i = 0; i < size; i++) {
         gridContainer.style['grid-template-columns'] += " 1fr ";
     }
     for (let i = 0; i < area; i++) {
         let gridSquare = document.createElement('div');
         gridSquare.classList.add('grid-square');
         gridSquare.addEventListener('mouseover', () => {
-            gridSquare.classList.add('blue');
+            gridSquare.style['background-color'] = generateRandomRGB();
         });
         gridContainer.appendChild(gridSquare);
     }
@@ -50,9 +60,6 @@ function generateNewGrid() {
 
 function resetGrid() {
     let gridSquaresArray = Array.from(gridSquares);
-    for (let i = 0; i < gridSquaresArray.length; i++) {
-        gridSquaresArray[i].classList.remove('blue');
-    }
     while (gridContainer.firstChild) {
         gridContainer.removeChild(gridContainer.firstChild);
     }
