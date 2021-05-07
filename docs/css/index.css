@@ -4,6 +4,38 @@ body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#title {
+    display: grid;
+    justify-content: center;
+}
+
+.slider-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+    flex-direction: row;
+    align-items: center;
+}
+
+#options {
+    display: grid;
+    justify-content: center;
+    margin-top: 3em;
+}
+
+#reset-grid-btn {
+    border-style: solid;
+    border-color: white;
+    background-color: black;
+    color: white;
+    font-size: 24px;
+}
+
+#reset-grid-btn:hover {
+    color: lightblue;
+    border-color: lightblue;
+}
+
 #grid-container {
     display: grid;
     margin: 5em auto;
@@ -21,34 +53,10 @@ body {
     display: flex;
 }
 
-#reset-grid-btn {
-    border-style: solid;
-    border-color: white;
-    background-color: black;
-    color: white;
-    font-size: 24px;
-}
 
-#reset-grid-btn:hover {
-    color: lightblue;
-    border-color: lightblue;
-}
 
-#title {
-    display: grid;
-    justify-content: center;
-}
 
-#options {
-    display: grid;
-    justify-content: center;
-    margin-top: 3em;
-}
 
-.slider-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 3em;
-    flex-direction: row;
-    align-items: center;
-}
+
+
+
