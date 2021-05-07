@@ -8,10 +8,15 @@
 
   <body>
         <div id='title'>
-            <h1>ETCH - A - SKETCH</h1>
+            <h1>ETCH-A-SKETCH</h1>
+        </div>
+        <div class='slider-container'>
+          <input type='range' min='1' max='100' value='50' id='slider'>
+          <label for='grid-size'>Grid Size: </label>
+          <p id=slider-value></p>
         </div>
         <div id='options'>
-            <button id="reset-grid-btn">Reset Grid</button>
+          <button id="reset-grid-btn">Reset Grid</button>
         </div>
         <div id='grid-container'></div>
   </body>

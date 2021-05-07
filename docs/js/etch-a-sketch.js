@@ -1,17 +1,22 @@
 
 let gridContainer = document.querySelector('#grid-container');
-generateGrid();
-
 let gridSquares = gridContainer.querySelectorAll('.grid-square');
-let gridSquaresArray = Array.from(gridSquares);
+let slider = document.querySelector('#slider');
+let sliderValue = document.querySelector('#slider-value');
 let resetButton = document.querySelector('#reset-grid-btn');
 
-resetButton.addEventListener('click', () => {
-    generateNewGrid();
+slider.input = updateSlider(slider.value);
+slider.addEventListener('input', () => {
+    updateSlider(slider.value);
 });
-resetButton.classList.add(':hover');
-resetButton.style['border-color:hover'] = generateRandomRGB();
-resetButton.style['color:hover'] = generateRandomRGB();
+
+resetButton.addEventListener('click', () => {
+    generateGrid(slider.value);
+});
+
+function updateSlider(value) {
+    sliderValue.textContent = `${value}x${value}`;
+}
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -21,34 +26,16 @@ function generateRandomRGB() {
     return `rgb(${getRandomInt(255)}, ${getRandomInt(255)}, ${getRandomInt(255)})`;
 }
 
-function generateGrid() {
-    for (let i = 0; i <= 256; i++) {
-        let gridSquare = document.createElement('div');
-        gridSquare.classList.add('grid-square');
-        gridSquare.addEventListener('mouseover', () => {
-            gridSquare.style['background-color'] = generateRandomRGB();
-        });
-        gridContainer.appendChild(gridSquare);
-    }
-}
-
-function generateNewGrid() {
-    let size = window.prompt('Set a new grid size', 100);
-
-    if (size > 100) {
-        alert('100 is the limit.');
-    }
-
+function generateGrid(size) {
     resetGrid();
     let area = size * size;
-
     for (let i = 0; i < size; i++) {
         gridContainer.style['grid-template-rows'] += " 1fr "
     }
     for (let i = 0; i < size; i++) {
         gridContainer.style['grid-template-columns'] += " 1fr ";
     }
-    for (let i = 0; i < area; i++) {
+    for (let i = 0; i <= area; i++) {
         let gridSquare = document.createElement('div');
         gridSquare.classList.add('grid-square');
         gridSquare.addEventListener('mouseover', () => {
@@ -59,7 +46,6 @@ function generateNewGrid() {
 }
 
 function resetGrid() {
-    let gridSquaresArray = Array.from(gridSquares);
     while (gridContainer.firstChild) {
         gridContainer.removeChild(gridContainer.firstChild);
     }
@@ -67,6 +53,8 @@ function resetGrid() {
     gridContainer.style['grid-template-columns'] = '';
     gridContainer.style['grid-template-rows'] = '';
 }
+
+generateGrid(slider.value);
 
 
 

@@ -6,8 +6,6 @@ body {
 
 #grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     margin: 5em auto;
     height: 768px;
     width: 1024px;
@@ -44,4 +42,13 @@ body {
 #options {
     display: grid;
     justify-content: center;
+    margin-top: 3em;
+}
+
+.slider-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+    flex-direction: row;
+    align-items: center;
 }
